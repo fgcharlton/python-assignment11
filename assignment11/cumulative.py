@@ -26,13 +26,11 @@ def cumulative(row):
 df['cumulative'] = df['total_price'].cumsum()
 
 # Create a line plot of cumulative revenue vs. order_id
-df.plot(x="cumulative", y="order_id", kind="line", title="Cumulative Revenue vs. Order_ID", legend = False)
+df.plot(x="order_id", y="cumulative", kind="line", title="Cumulative Revenue vs. Order_ID", legend = False)
 
 # Format line chart
-plt.xlabel('Cumulative Revenue ($)')
-plt.ylabel('Order_ID')
-current_values = plt.gca().get_xticks() # Format y values to be more readable
-plt.gca().set_xticklabels(['{:,.0f}'.format(y) for y in current_values])
+plt.xlabel('order_id')
+plt.ylabel('cumulative revenue ($)')
 
 # Plot line chart
 plt.show()
@@ -51,7 +49,7 @@ print(df.tail(10))
 # Clean Data
 
 # Clean strength column
-df['strength'] = df['strength'].str.replace('[+-]', '', regex=True)
+df['strength'] = df['strength'].str.replace('[^0-9]', '', regex=True)
 
 # Convert strength column to a float
 df['strength'] = df['strength'].astype(float)
@@ -73,3 +71,13 @@ df = pldata.wind(return_type='pandas') # Returns a DataFrame.  plotly.data has a
 fig = px.scatter(df, x='strength', y='frequency', color='direction',
                  title="Wind Data, Strength vs. Frequency", hover_data=["frequency"])
 fig.write_html("wind.html", auto_open=True)
+
+# Open HTML to ensure it was created
+def read_html_file(file_path):
+    with open(file_path, 'r') as file:
+        html_content = file.read()
+    return html_content
+
+html_text = read_html_file('wind.html')
+
+print(html_text)
