@@ -24,8 +24,6 @@ employee_results.plot(x="last_name", y="revenue", kind="bar", color="skyblue", t
 # Format bar chart
 plt.xlabel('Employee Last Name')
 plt.ylabel('Revenue ($)')
-current_values = plt.gca().get_yticks() # Format x values to be more readable
-plt.gca().set_yticklabels(['{:,.0f}'.format(x) for x in current_values])
 
 # Plot bar chart
 plt.show()
