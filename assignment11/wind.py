@@ -13,7 +13,6 @@ print("Last 10 lines of the DataFrame")
 print(df.tail(10))
 
 # Clean Data
-
 # Clean strength column
 df['strength'] = df['strength'].str.replace(r"[^\d.]", '', regex=True)
 
