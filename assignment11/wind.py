@@ -18,12 +18,6 @@ df['strength'] = df['strength'].str.replace(r"[^\d.]", '', regex=True)
 # Convert strength column to a float
 df['strength'] = df['strength'].astype(float)
 
-print("First 10 lines of the DataFrame")
-print(df.head(10))
-
-print("Last 10 lines of the DataFrame")
-print(df.tail(10))
-
 print("Confirm correct data types for the DataFrame")
 print(df.dtypes)
 
@@ -37,3 +31,12 @@ if os.path.exists("wind.html") and os.path.getsize("wind.html") > 0:
     print("wind.html was saved successfully.")
 else:
     print("Error: wind.html was not saved correctly.")
+
+# Confirm file 
+with open("wind.html", "r", encoding="utf-8") as f:
+    html = f.read()
+
+if "plotly" in html:
+    print("wind.html loaded and verified.")
+else:
+    print("Error: Plotly content missing from wind.html.")
