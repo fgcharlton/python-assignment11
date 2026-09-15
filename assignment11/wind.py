@@ -1,7 +1,6 @@
 # Task 3: Interactive Visualizations with Plotly
 import plotly.express as px
 import plotly.data as pldata
-import webbrowser
 import os 
 
 df = pldata.wind(return_type='pandas')
@@ -36,6 +35,5 @@ fig.write_html("wind.html", auto_open=True)
 # Ensure HTML was created
 if os.path.exists("wind.html") and os.path.getsize("wind.html") > 0:
     print("wind.html was saved successfully.")
-    webbrowser.open("wind.html")
 else:
     print("Error: wind.html was not saved correctly.")
