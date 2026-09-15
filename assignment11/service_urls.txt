@@ -1,2 +1,2 @@
-# Web Scraping Project Streamlit Dashboard App Link
+# Web Scraping Project Streamlit Dashboard App
 # https://pythonessentialswebscrapingcapstone-fishercharlton.streamlit.app/
