@@ -1,8 +1,8 @@
+# Task 2: A Line Plot with Pandas
 import pandas as pd 
 import matplotlib.pyplot as plt
 import sqlite3 
 
-# Task 2: A Line Plot with Pandas
 try:
     with sqlite3.connect("../db/lesson.db") as conn:
         sql_statement = """
